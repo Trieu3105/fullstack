@@ -42,6 +42,7 @@
     "@types/node": "20.6.2",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
+    "@vercel/speed-insights": "^1.2.0",
     "antd": "5.24.6",
     "autoprefixer": "10.4.15",
     "axios": "^1.8.4",
@@ -70,7 +71,7 @@
     "react-resizable-panels": "^2.1.3",
     "recharts": "^2.12.7",
     "sonner": "^1.5.0",
-    "stripe": "^18.0.0",
+    "stripe": "^18.1.0",
     "Stripe": "npm:stripe@^18.0.0",
     "swiper": "^11.2.6",
     "tailwind-merge": "^2.5.2",
@@ -81,6 +82,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/js-cookie": "^3.0.6"
+    "@types/js-cookie": "^3.0.6",
+    "@types/stripe": "^8.0.416"
   }
 }
