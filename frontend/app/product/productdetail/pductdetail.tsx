@@ -42,7 +42,7 @@ export default function Productdetail() {
 
     // Gọi API để lấy thông tin chi tiết sản phẩm
     axios
-      .get(`http://localhost:8080/api/products/${productId}`)
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/api/products/${productId}`)
       .then((response) => {
         if (response.data.success) {
           const productData = response.data.data;
@@ -80,7 +80,7 @@ export default function Productdetail() {
     const quantity = 1;
 
     try {
-      const response = await fetch("http://localhost:8080/api/add", {
+      const response = await fetch("${process.env.NEXT_PUBLIC_API_URL}/api/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id_user, id_product, quantity }),
