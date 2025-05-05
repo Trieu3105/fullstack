@@ -3,6 +3,15 @@ const router = express.Router();
 const db = require("../data/db"); // Kết nối database
 router.use(express.json()); // Middleware để parse JSON body
 
+// Health check endpoint
+router.get('/health', (req, res) => {
+    res.status(200).json({ 
+        status: 'OK', 
+        message: 'Payment API is healthy', 
+        apiBaseUrl: process.env.API_BASE_URL || "http://localhost:8080/api" // Use API_BASE_URL from .env
+    });
+});
+
 // Endpoint thanh toán
 router.post("/checkout", async (req, res) => {
   const { id_user, payment_method } = req.body; // Nhận id_user và phương thức thanh toán từ frontend

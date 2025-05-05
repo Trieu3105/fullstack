@@ -11,8 +11,8 @@ const SECRET_KEY = process.env.JWT_SECRET || "mysecret";
 router.use(cookieParser());
 router.use(
   cors({
-    origin: "http://localhost:3000", // Địa chỉ Frontend của bạn
-    credentials: true, // Cho phép gửi cookie từ frontend
+    origin: process.env.FRONTEND_URL || "http://localhost:3000", // Use FRONTEND_URL from .env
+    credentials: true, // Allow sending cookies from frontend
   })
 );
 
@@ -26,7 +26,7 @@ router.post("/login", async (req, res) => {
     const [results] = await db.query("SELECT * FROM users WHERE username = ?", [username]);
 
     if (results.length === 0) {
-      return res.status(401).json({ message: "Sai Pass Rồi Djt me may 1" });
+      return res.status(401).json({ message: "Invalid username or password" });
     }
 
     const user = results[0];
@@ -35,14 +35,14 @@ router.post("/login", async (req, res) => {
         expiresIn: "1h",
       });
 
-      res.cookie("access_token", token, { httpOnly: false, maxAge: 3600000 });
+      res.cookie("access_token", token, { httpOnly: true, maxAge: 3600000 });
       return res.status(200).json({ message: "Login successful", token });
     } else {
-      return res.status(401).json({ message: "Sai Pass Rồi Djt me may" });
+      return res.status(401).json({ message: "Invalid username or password" });
     }
   } catch (err) {
     console.error("Error fetching user:", err);
-    return res.status(500).json({ error: "Error fetching user" });
+    return res.status(500).json({ error: "Internal server error" });
   }
 });
 

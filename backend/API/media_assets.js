@@ -2,6 +2,15 @@ const express = require("express");
 const router = express.Router();
 const db = require("../data/db"); // Kết nối với pool Promise (mysql2/promise)
 
+// Health check endpoint
+router.get('/health', (req, res) => {
+    res.status(200).json({ 
+        status: 'OK', 
+        message: 'Media Assets API is healthy', 
+        apiBaseUrl: process.env.API_BASE_URL || "http://localhost:8080/api" // Use API_BASE_URL from .env
+    });
+});
+
 router.get("/media", async (req, res) => {
   try {
     // Truy vấn lấy dữ liệu slideshow và intro sử dụng Promise

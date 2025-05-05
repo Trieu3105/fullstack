@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SidebarMenu from "../../component/sidebar";
+import SidebarMenu from "../../components/sidebar";
 import axios from "axios";
 
 export default function Home() {

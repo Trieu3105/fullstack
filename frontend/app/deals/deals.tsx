@@ -1,4 +1,4 @@
-import SidebarMenu from "../component/sidebar";
+import SidebarMenu from "../components/sidebar";
 
 const products = [
   {

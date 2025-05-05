@@ -16,7 +16,7 @@ export default function SidebarMenu({ onSelectCategory }: SidebarMenuProps) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null); // Add state for selected category
 
-  const handleSelectCategory = (id) => {
+  const handleSelectCategory = (id: number | null) => {
     setSelectedCategory(id);
     onSelectCategory(id); // giữ nguyên logic gốc
   };

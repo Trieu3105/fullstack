@@ -2,6 +2,15 @@ const express = require("express");
 const router = express.Router();
 const db = require("../data/db"); // Kết nối mysql2/promise
 
+// Health check endpoint
+router.get('/health', (req, res) => {
+    res.status(200).json({ 
+        status: 'OK', 
+        message: 'Products API is healthy', 
+        apiBaseUrl: process.env.API_BASE_URL || "http://localhost:8080/api" // Use API_BASE_URL from .env
+    });
+});
+
 // Biến lưu trữ danh sách sản phẩm đã được định dạng
 let cachedProducts = [];
 

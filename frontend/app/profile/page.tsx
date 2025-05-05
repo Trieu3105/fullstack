@@ -1,5 +1,5 @@
 import ProfilePage from './profile';
-import Nav from '../component/nav';
+import Nav from '../components/nav';
 
 
 export default function Home() {

@@ -1,12 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Nav from "./component/nav";
+import Nav from "./components/nav";
 const inter = Inter({ subsets: ["latin"] });
 import { UserProvider } from "./context/context";
 import { usePathname } from "next/navigation";
-import NavWrapper from "./component/NavWrapper";
-import Footer from "./component/footer";
+import NavWrapper from "./components/NavWrapper";
+import Footer from "./components/footer";
 
 export const metadata: Metadata = {
   title: "TLShop - Premium Mobile Devices",
